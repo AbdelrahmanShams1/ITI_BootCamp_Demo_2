@@ -1,0 +1,77 @@
+<div class="app flex flex-wrap gap-6 justify-center items-center p-6">
+    <div
+      class="card bg-white dark:bg-gray-800 p-5 shadow-lg rounded-xl overflow-hidden w-72 transition-transform transform hover:scale-105"
+      *ngFor="let item of arr"
+      style="cursor: pointer;"
+    >
+      <div>
+        <div class="relative">
+          <img
+            [src]="item.img"
+            alt="{{ item.name }}"
+            class="w-full h-40 object-cover rounded-t-xl"
+          />
+        </div>
+        <div class="card-content p-4 flex flex-col gap-3">
+          <h2 class="card-title text-lg font-bold text-gray-900 dark:text-gray-100">
+            {{ item.name }}
+          </h2>
+          <p class="card-description text-gray-700 dark:text-gray-300 text-sm">
+            {{ item.des }}
+          </p>
+          <p class="card-model text-gray-600 dark:text-gray-400 text-sm">
+            <span class="font-semibold">Model:</span> {{ item.model }}
+          </p>
+          <p class="card-price text-green-600 dark:text-green-400 font-semibold">
+            <span class="font-semibold">Price:</span> ${{ item.price }}
+          </p>
+  
+          <p *ngIf="item.Qua > 5" class="text-green-600 font-semibold text-sm">
+            Available: {{ item.Qua }}
+          </p>
+          <p
+            class="text-red-600 font-semibold text-sm"
+            *ngIf="item.Qua <= 5 && item.Qua != 0"
+          >
+            Only {{ item.Qua }} left in stock!
+          </p>
+          <p class="text-red-700 font-bold text-sm" *ngIf="item.Qua === 0">
+            Out of stock
+          </p>
+  
+        
+          <div class="mt-4 flex justify-between items-center gap-2">
+          
+            <button
+              (click)="add(item)"
+              class="bg-green-600 text-white text-[22px] px-4 py-2 rounded-lg text-sm hover:bg-green-700 transition shadow-md"
+            >
+              +
+            </button>
+             
+            <input
+  type="text"
+  class="w-12 text-center text-lg font-semibold border border-gray-300 dark:border-gray-600 rounded-lg p-2 dark:bg-gray-700 dark:text-white shadow-sm"
+  readonly
+  [value]="item.count"
+/>
+
+            <button
+              (click)="remove(item)"
+              class="bg-red-600 text-white text-[22px] px-4 py-2 rounded-lg text-sm hover:bg-red-700 transition shadow-md"
+            >
+              -
+            </button>
+          </div>
+  
+         
+          <a [routerLink]="['/detail', item.id]" class="text-center mt-4">
+            <button class="details bg-gray-600 text-white px-3 py-3 text-[18px] rounded-lg text-sm hover:bg-gray-700 transition w-full shadow-md">
+              Details
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  

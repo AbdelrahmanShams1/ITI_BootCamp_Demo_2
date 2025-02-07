@@ -1,0 +1,51 @@
+<div *ngIf="product" class="flex flex-wrap justify-center gap-10 items-center mx-auto bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+  <div class="relative w-[425px]">
+    <img [src]="product.img" alt="{{ product.name }}" class="w-[81%] h-60 object-cover rounded-t-lg" />
+  </div>
+  <div class="p-6">
+    <h2 class="text-3xl font-bold text-gray-900 dark:text-white">{{ product.name }}</h2>
+    <p class="text-gray-700 dark:text-gray-300 mt-2">{{ product.des }}</p>
+
+    <div class="mt-4 space-y-2">
+      <p class="text-gray-600 dark:text-gray-400"><span class="font-semibold">Model:</span> {{ product.model }}</p>
+      <p class="text-gray-600 dark:text-gray-400"><span class="font-semibold">Brand:</span> {{ product.brand }}</p>
+      <p class="text-gray-600 dark:text-gray-400"><span class="font-semibold">Processor:</span> {{ product.processor }}</p>
+      <p class="text-gray-600 dark:text-gray-400"><span class="font-semibold">Display:</span> {{ product.display }}</p>
+      <p class="text-gray-600 dark:text-gray-400"><span class="font-semibold">Battery Life:</span> {{ product.battery_life }}</p>
+      <p class="text-gray-600 dark:text-gray-400"><span class="font-semibold">Color:</span> {{ product.color }}</p>
+    </div>
+
+    <div class="flex items-center mt-4">
+      <span class="font-semibold text-gray-600 dark:text-gray-400">Rating:</span>
+      <span class="text-yellow-400 ml-1">{{ product.rating }} / 5</span>
+    </div>
+
+    <div class="mt-6">
+      <p *ngIf="product.Qua > 5" class="text-green-600 dark:text-green-400 font-semibold">Available: {{ product.Qua }}</p>
+      <p *ngIf="product.Qua <= 5 && product.Qua != 0" class="text-red-600 dark:text-red-400 font-semibold">
+        Only {{ product.Qua }} left in stock!
+      </p>
+      <p *ngIf="product.Qua === 0" class="text-red-700 font-bold">Out of stock</p>
+    </div>
+
+    <div class="mt-6 flex justify-between items-center">
+      <p class="text-2xl text-green-600 font-semibold">${{ product.price }}</p>
+      
+      <!-- Add to Cart Button -->
+      <button 
+        *ngIf="!isAdmin && isLogin" 
+        class="bg-blue-600 p-3 font-semibold text-[15px] text-white rounded-lg hover:bg-blue-700 transition"
+        (click)="AddToCart(product)">
+        Add to Cart
+      </button>
+
+      <!-- Admin Delete Product Button -->
+      <button 
+        *ngIf="isAdmin" 
+        class="bg-red-600 p-3 font-semibold text-[15px] text-white rounded-lg hover:bg-red-700 transition"
+        (click)="deleteProduct(product)">
+        Delete Product
+      </button>
+    </div>
+  </div>
+</div>

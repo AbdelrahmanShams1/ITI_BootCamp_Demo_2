@@ -1,0 +1,36 @@
+<nav class="bg-gray-900 text-white p-4 shadow-lg">
+    <div class="container mx-auto flex justify-between items-center">
+      <a href="#" class="text-xl font-bold">My Website</a>
+  
+      <div class="flex gap-4" >
+        <button *ngIf="isAdmin === true"
+          (click)="RouteToProfile()" 
+          class="px-4 py-2 rounded-lg font-semibold hover:bg-gray-700 transition"
+        >
+          Add Product
+        </button>
+  
+        <button
+          (click)="RouteToCart()"
+          class="px-4 py-2 rounded-lg font-semibold hover:bg-gray-700 transition"
+        >
+          Cart
+        </button>
+  
+        <button
+          (click)="RouteToBack()"
+          class="px-4 py-2 rounded-lg font-semibold hover:bg-gray-700 transition"
+        >
+          Back
+        </button>
+
+        <button
+          (click)="RouteToLogin()"
+          class="px-4 py-2 rounded-lg font-semibold hover:bg-gray-700 transition"
+        >
+          Login
+        </button>
+      </div>
+    </div>
+  </nav>
+  
