@@ -30,7 +30,7 @@ export class DetailsComponent implements OnInit {
 
     if (id) {
       this.id = +id; 
-      this.http.get("http://localhost:3000/data").subscribe((res) => {
+      this.http.get("https://fake-api-demo-2-4j1r.vercel.app/data").subscribe((res) => {
         this.data = res;
         this.getProductDetails(); 
       });

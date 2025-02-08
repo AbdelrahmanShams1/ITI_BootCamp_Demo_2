@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    this.http.get<any[]>('http://localhost:3000/data').subscribe((res) => {
+    this.http.get<any[]>('https://fake-api-demo-2-4j1r.vercel.app/data').subscribe((res) => {
       this.data = res;  // Ensure data is properly populated
     });
   }

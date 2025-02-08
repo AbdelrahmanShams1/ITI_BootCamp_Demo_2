@@ -12,7 +12,6 @@ import {HttpClientModule} from "@angular/common/http";
 import { LoginComponent } from './components/login/login.component'
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AdminPageComponent } from './components/admin-page/admin-page.component';
 import { EditComponent } from './components/edit/edit.component';
 
 
@@ -26,7 +25,6 @@ import { EditComponent } from './components/edit/edit.component';
     DetailsComponent,
     HomeComponent,
     LoginComponent,
-    AdminPageComponent,
     EditComponent,
    
   ],

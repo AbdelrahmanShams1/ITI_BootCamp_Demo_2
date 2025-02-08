@@ -45,7 +45,7 @@ export class EditComponent implements OnInit {
       });
 
      
-      this.http.get(`http://localhost:3000/data/${this.id}`).subscribe((res: any) => {
+      this.http.get(`https://fake-api-demo-2-4j1r.vercel.app/data/${this.id}`).subscribe((res: any) => {
         this.product = res;
         this.populateForm();
       });
@@ -74,14 +74,14 @@ export class EditComponent implements OnInit {
     if (this.productForm.valid) {
      
       const updatedProduct = this.productForm.value;
-      this.http.put(`http://localhost:3000/data/${this.id}`, updatedProduct).subscribe(
+      this.http.patch(`https://fake-api-demo-2-4j1r.vercel.app/data/${this.id}`, updatedProduct).subscribe(
         (response) => {
           alert('Product updated successfully!');
           this.router.navigate(['']);
         },
         (error) => {
-          alert('Error updating product');
-          console.error(error);
+         
+          this.router.navigate(['']);
         }
       );
     }

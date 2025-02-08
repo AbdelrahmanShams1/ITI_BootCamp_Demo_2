@@ -24,6 +24,10 @@ export class CartComponent implements OnInit {
     this.cartService.addToCart(product); 
   }
 
+  removeItem(productId: number) {
+    this.cartService.removeFromCart(productId);
+  }
+   
   add(product: any) {
     if(product.Qua >  product.count)
     product.count++; 
