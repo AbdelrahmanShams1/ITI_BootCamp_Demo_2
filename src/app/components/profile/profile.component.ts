@@ -32,12 +32,11 @@ export class ProfileComponent {
     if (this.productForm.valid) {
       this.productService.addProduct(this.productForm.value).subscribe({
         next: (response) => {
-          console.log('Product added successfully:', response);
           this.productForm.reset(); 
          this.rou.navigate([''])
         },
         error: (error) => {
-          console.error('Error adding product:', error);
+          this.rou.navigate([''])
         },
       });
     }
