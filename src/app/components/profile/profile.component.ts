@@ -33,10 +33,10 @@ export class ProfileComponent {
       this.productService.addProduct(this.productForm.value).subscribe({
         next: (response) => {
           this.productForm.reset(); 
-         this.rou.navigate([''])
+         this.rou.navigate(['/'])
         },
         error: (error) => {
-          this.rou.navigate([''])
+          this.rou.navigate(['/'])
         },
       });
     }
