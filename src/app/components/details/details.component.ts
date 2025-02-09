@@ -60,14 +60,12 @@ export class DetailsComponent implements OnInit {
   deleteProduct(product: any) {
     const confirmation = confirm('Are you sure you want to delete this product?');
     if (confirmation) {
-      this.http.delete(`http://localhost:3000/data/${product.id}`).subscribe(
+      this.http.delete(`https://fake-api-demo-2-4j1r.vercel.app/data/${product.id}`).subscribe(
         (response) => {
-          alert(`Product ${product.name} deleted!`);
           this.router.navigate(['']); 
         },
         (error) => {
-          alert('Error deleting product');
-          console.error(error);
+          this.router.navigate(['']); 
         }
       );
     }

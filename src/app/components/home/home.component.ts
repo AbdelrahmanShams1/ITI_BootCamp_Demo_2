@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,7 @@ export class HomeComponent implements OnInit {
   title = 'application';
   data: any[] = [];
 
-  constructor(private http: HttpClient, private cdr: ChangeDetectorRef) {}
+  constructor(private http: HttpClient, private router : Router , private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
     this.http
@@ -31,7 +32,7 @@ export class HomeComponent implements OnInit {
           `https://fake-api-demo-2-4j1r.vercel.app/data/${deletedProduct.id}`
         )
         .subscribe(() => {
-          console.log('Product deleted from server');
+        this.router.navigate(['/'])
         });
     }
   }

@@ -48,12 +48,12 @@ export class CardsComponent implements OnInit {
     if (confirmation) {
       this.http.delete(`https://fake-api-demo-2-4j1r.vercel.app/data/${product.id}`).subscribe(
         (response) => {
-          alert(`Product ${product.name} deleted!`);
-          this.productDeleted.emit(product); // Emit the deleted product
+          this.router.navigate(['/'])
+          this.productDeleted.emit(product); 
         },
         (error) => {
-          alert('Error deleting product');
-          console.error(error);
+          this.router.navigate(['/'])
+          this.productDeleted.emit(product); 
         }
       );
     }
