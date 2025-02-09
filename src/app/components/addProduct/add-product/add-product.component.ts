@@ -2,16 +2,16 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProductService } from 'src/app/Srevices/product.service';
 import { Router } from '@angular/router';
+
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  selector: 'app-add-product',
+  templateUrl: './add-product.component.html',
+  styleUrls: ['./add-product.component.css']
 })
-export class ProfileComponent {
+export class AddProductComponent {
   productForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private rou :Router, private productService: ProductService) {
-   
+  constructor(private fb: FormBuilder, private rou: Router, private productService: ProductService) {
     this.productForm = this.fb.group({
       name: ['', [Validators.required]],
       des: ['', [Validators.required, Validators.minLength(20)]],
@@ -21,22 +21,22 @@ export class ProfileComponent {
       brand: ['', [Validators.required]],
       processor: [''],
       display: [''],
-      battery_life: ['' , [Validators.required]],
+      battery_life: ['', [Validators.required]],
       rating: [null, [Validators.min(0), Validators.max(5)]],
       color: ['', [Validators.required]],
     });
   }
 
   onSubmit() {
-    console.log(this.productForm)
+    console.log(this.productForm);
     if (this.productForm.valid) {
       this.productService.addProduct(this.productForm.value).subscribe({
         next: (response) => {
-          this.productForm.reset(); 
-         this.rou.navigate(['/'])
+          this.productForm.reset();
+          this.rou.navigate(['/']);
         },
         error: (error) => {
-          this.rou.navigate(['/'])
+          this.rou.navigate(['/']);
         },
       });
     }

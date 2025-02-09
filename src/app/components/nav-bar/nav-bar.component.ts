@@ -20,7 +20,7 @@ export class NavBarComponent implements OnInit {
   }
 
   RouteToProfile() {
-    this.router.navigate(['profile']);
+    this.router.navigate(['add']);
   }
 
   RouteToCart() {

@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProfileComponent } from './components/profile/profile.component';
 import { CartComponent } from './components/cart/cart.component';
 import { CardsComponent } from './components/cards/cards.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
@@ -13,12 +12,12 @@ import { LoginComponent } from './components/login/login.component'
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EditComponent } from './components/edit/edit.component';
+import { AddProductComponent } from './components/addProduct/add-product/add-product.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProfileComponent,
     CartComponent,
     CardsComponent,
     NavBarComponent,
@@ -26,6 +25,7 @@ import { EditComponent } from './components/edit/edit.component';
     HomeComponent,
     LoginComponent,
     EditComponent,
+    AddProductComponent,
    
   ],
   imports: [

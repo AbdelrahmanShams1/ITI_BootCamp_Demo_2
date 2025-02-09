@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ProfileComponent } from './components/profile/profile.component';
 import { HomeComponent } from './components/home/home.component';
 import { CartComponent } from './components/cart/cart.component';
 import { DetailsComponent } from './components/details/details.component';
 import { LoginComponent } from './components/login/login.component';
 import { EditComponent } from './components/edit/edit.component';
+import { AddProductComponent } from './components/addProduct/add-product/add-product.component';
 
 const routes: Routes = [
-  { path: "profile" , component : ProfileComponent},
+  { path: "add" , component : AddProductComponent},
   { path: "" , component: HomeComponent},
   { path: "shop" , component: CartComponent},
   { path: "detail/:id" , component: DetailsComponent},
